@@ -1,1 +1,1 @@
-`minifun = Mini Function`
+`minifun = Mini Functions`
