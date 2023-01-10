@@ -1,0 +1,24 @@
+{
+  "name": "mazhongchao/minifun",
+  "description": "A collection of PHP programming utilities",
+  "keywords": ["minifun", "utilities", "tools", "framework", "PHP"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "mazhongchao",
+      "email": "mazhongchao@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~9.0"
+  },
+  "autoload" :{
+    "classmap": [
+      "src/console"
+    ],
+    "files": []
+  }
+}
