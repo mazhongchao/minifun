@@ -3,19 +3,20 @@
 class MFConsole
 {
     private static $console_types = [
-        'info'    => ['style'=>'0', 'color'=>'36'],  //cyan-blue
-        'notice'  => ['style'=>'1', 'color'=>'37'],  //highlight white
+        'info'    => ['style'=>'1', 'color'=>'37'],  //highlight white
+        'notice'  => ['style'=>'0', 'color'=>'36'],  //cyan-blue
         'warning' => ['style'=>'0', 'color'=>'33'],  //yellow
         'error'   => ['style'=>'1', 'color'=>'31'],  //highlight red
+        'success'  => ['style'=>'0', 'color'=>'32'],
         'blue'    => ['style'=>'1', 'color'=>'34'],
         'green'   => ['style'=>'0', 'color'=>'32'],
         'red'     => ['style'=>'1', 'color'=>'31'],
         'white'   => ['style'=>'1', 'color'=>'37'],
         'yellow'  => ['style'=>'0', 'color'=>'33'],
     ];
-    private static $page_types = [
-        'info'    => ['color'=>'#0486b3', 'bg_color'=>'#b1e0f0'],
-        'notice'  => ['color'=>'#7a7a7a', 'bg_color'=>'#ededed'],
+    private static $text_types = [
+        'info'    => ['color'=>'#7a7a7a', 'bg_color'=>'#ededed'],
+        'notice'  => ['color'=>'#0486b3', 'bg_color'=>'#b1e0f0'],
         'warning' => ['color'=>'#ed8c05', 'bg_color'=>'#fcfbca'],
         'error'   => ['color'=>'#d12c31', 'bg_color'=>'#ffbdbf'],
         'success' => ['color'=>'#039c46', 'bg_color'=>'#cafce0'],
@@ -53,27 +54,32 @@ class MFConsole
             }
         }
         else {
-            if(!empty($pre)) echo "$pre\n";
+            if (!empty($pre)) {
+                echo "$pre\n";
+            }
             var_dump($text);
         }
     }
 
-    public static function page($text, $type='', $pre='')
+    public static function info($text, $type='', $pre='')
     {
         if (is_string($text)) {
-            if (!empty($type) && isset(self::$console_types[$type])) {
-                $mode = self::$page_types[$type]['style'];
-                $color = self::$page_types[$type]['color'];
-                $background = self::$page_types[$type]['bg_color'];
-                echo "<div style=\"color: $color; background: $background; float:left; width: 80%;padding: 3px;margin: 0;\">$pre$text</div>";
+            if (!empty($type) && isset(self::$text_types[$type])) {
+                $color = self::$text_types[$type]['color'];
+                $background = self::$text_types[$type]['bg_color'];
+                echo "<p><div style=\"color: $color; background: $background; float:left; width: 80%;padding: 3px;margin: 0;\">$pre$text</div></p>";
             }
             else {
-                echo "$pre$text\n";
+                echo "<p>$pre$text<p/>";
             }
         }
         else {
-            if(!empty($pre)) echo "$pre\n";
+            if (!empty($pre)) {
+                echo "<p>$pre<p/>";
+            }
+            echo "<p><pre>";
             var_dump($text);
+            echo "</p>\n";
         }
     }
 }
