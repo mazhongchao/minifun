@@ -7,7 +7,7 @@ class MFConsole
         'notice'  => ['style'=>'0', 'color'=>'36'],  //cyan-blue
         'warning' => ['style'=>'0', 'color'=>'33'],  //yellow
         'error'   => ['style'=>'1', 'color'=>'31'],  //highlight red
-        'success'  => ['style'=>'0', 'color'=>'32'],
+        'success' => ['style'=>'0', 'color'=>'32'],
         'blue'    => ['style'=>'1', 'color'=>'34'],
         'green'   => ['style'=>'0', 'color'=>'32'],
         'red'     => ['style'=>'1', 'color'=>'31'],
@@ -67,7 +67,7 @@ class MFConsole
             if (!empty($type) && isset(self::$text_types[$type])) {
                 $color = self::$text_types[$type]['color'];
                 $background = self::$text_types[$type]['bg_color'];
-                echo "<p><div style=\"color: $color; background: $background; float:left; width: 80%;padding: 3px;margin: 0;\">$pre$text</div></p>";
+                echo "<p><div style=\"color: $color; background: $background; float:left; width: 80%;padding: 3px;margin: 0;\"><pre>$pre$text</div></p>";
             }
             else {
                 echo "<p>$pre$text<p/>";
