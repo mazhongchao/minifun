@@ -1,10 +1,15 @@
 <?php
 class MFTemplate
 {
-    protected static $path = [
-        'path' => '../templates',
-    ];
+    protected static $path = "../templates";
     protected static $data = [];
+
+    public static function set_path($path = '')
+    {
+        if (!empty($path)) {
+            self::$path = $path;
+        }
+    }
 
     public static function render($tpl, array $data = []) {
         $tpl_file = self::$path.DIRECTORY_SEPARATOR.$tpl;
