@@ -4,7 +4,7 @@ class MFTemplate
     protected static $path = "../templates";
     protected static $data = [];
 
-    public static function set_path($path = '')
+    public static function setPath($path = '')
     {
         if (!empty($path)) {
             self::$path = $path;
