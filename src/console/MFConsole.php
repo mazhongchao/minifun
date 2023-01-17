@@ -61,25 +61,45 @@ class MFConsole
         }
     }
 
-    public static function info($text, $type='', $pre='')
+    public static function info($text, $type='', $pre='', $class='')
     {
         if (is_string($text)) {
             if (!empty($type) && isset(self::$text_types[$type])) {
                 $color = self::$text_types[$type]['color'];
                 $background = self::$text_types[$type]['bg_color'];
-                echo "<p><div style=\"color: $color; background: $background; float:left; width: 80%;padding: 3px;margin: 0;\"><pre>$pre$text</div></p>";
+                if (empty($class)) {
+                    echo "<div style=\"color: $color; background: $background; float:left; width: 80%;\"><pre>$pre$text</pre></div>";
+                }
+                else{
+                    echo "<div style=\"$class\"><pre>$pre$text</pre></div>";
+                }
+                
             }
             else {
-                echo "<p>$pre$text<p/>";
+                if (empty($class)) {
+                    echo "<div style=\"color: #333; background: #ededed; float:left; width: 80%;\"><pre>$pre$text</pre></div>";
+                }
+                else{
+                    echo "<div style=\"$class\"><pre>$pre$text</pre></div>";
+                }
+                //echo "<p>$pre$text<p/>";
             }
         }
         else {
-            if (!empty($pre)) {
-                echo "<p>$pre<p/>";
+            if (empty($class)) {
+                echo "<div style=\"color: #555; background: #ddd; float:left; width: 80%;\">";
             }
-            echo "<p><pre>";
+            else {
+                echo "<div style=\"$class\">";
+            }
+
+            if (!empty($pre)) {
+                echo "$pre";
+            }
+
+            echo "<pre>";
             var_dump($text);
-            echo "</p>\n";
+            echo "</pre></div>";
         }
     }
 }
