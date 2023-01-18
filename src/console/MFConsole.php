@@ -22,17 +22,6 @@ class MFConsole
         'cyan'      => ['style'=>'0', 'color'=>'36'],
         'white'     => ['style'=>'0', 'color'=>'37'],
         'gray'      => ['style'=>'0', 'color'=>'90'],
-
-        // 'info'    => ['style'=>'1', 'color'=>'37'],  //highlight white
-        // 'notice'  => ['style'=>'0', 'color'=>'36'],  //cyan-blue
-        // 'warning' => ['style'=>'0', 'color'=>'33'],  //yellow
-        // 'error'   => ['style'=>'1', 'color'=>'31'],  //highlight red
-        // 'success' => ['style'=>'0', 'color'=>'32'],
-        // 'blue'    => ['style'=>'1', 'color'=>'34'],
-        // 'green'   => ['style'=>'0', 'color'=>'32'],
-        // 'red'     => ['style'=>'1', 'color'=>'31'],
-        // 'white'   => ['style'=>'1', 'color'=>'37'],
-        // 'yellow'  => ['style'=>'0', 'color'=>'33'],
     ];
     private static $text_types = [
         'info'    => ['color'=>'#7a7a7a', 'bg_color'=>'#ededed'],
@@ -68,7 +57,6 @@ class MFConsole
                 $mode = self::$console_types[$type]['style'];
                 $color = self::$console_types[$type]['color'];
                 echo "\033[{$mode};{$color}m{$pre_text}{$text}\033[0m\n";
-                //print("\\033\[{$mode};{$color}m{$pre}{$text}\\033\[0m\n");
             }
             else {
                 echo "{$pre_text}{$text}\n";
